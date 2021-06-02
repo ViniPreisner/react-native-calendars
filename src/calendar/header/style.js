@@ -9,8 +9,6 @@ export default function (theme = {}) {
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingLeft: 10,
-      paddingRight: 10,
       marginTop: 6,
       alignItems: 'center'
     },
@@ -25,7 +23,7 @@ export default function (theme = {}) {
       margin: 10
     },
     arrow: {
-      padding: 10,
+      paddingVertical: 10,
       ...appStyle.arrowStyle
     },
     arrowImage: {

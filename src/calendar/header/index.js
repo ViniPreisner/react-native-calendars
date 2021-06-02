@@ -48,7 +48,8 @@ class CalendarHeader extends Component {
     /** Replace default month and year title with custom one. the function receive a date as parameter. */
     renderHeader: PropTypes.any,
     /** Provide aria-level for calendar heading for proper accessibility when used with web (react-native-web) */
-    webAriaLevel: PropTypes.number
+    webAriaLevel: PropTypes.number,
+    renderMonthDays: PropTypes.any
   };
 
   static defaultProps = {
@@ -109,7 +110,7 @@ class CalendarHeader extends Component {
   };
 
   renderWeekDays = memoize(weekDaysNames => {
-    const {disabledDaysIndexes} = this.props;
+    const {disabledDaysIndexes, renderMonthDays} = this.props;
 
     return weekDaysNames.map((day, idx) => {
       const dayStyle = [this.style.dayHeader];
@@ -120,6 +121,10 @@ class CalendarHeader extends Component {
 
       if (this.style[`dayTextAtIndex${idx}`]) {
         dayStyle.push(this.style[`dayTextAtIndex${idx}`]);
+      }
+
+      if (renderMonthDays) {
+        return renderMonthDays(day);
       }
 
       return (
