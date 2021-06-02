@@ -124,7 +124,7 @@ class CalendarHeader extends Component {
       }
 
       if (renderMonthDays) {
-        return renderMonthDays(day);
+        return renderMonthDays(day, idx);
       }
 
       return (
